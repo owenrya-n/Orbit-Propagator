@@ -67,7 +67,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><pre class="codeinput">filename = <span class="string">'test.csv'</span>
+  </style></head><body><div class="content"><pre class="codeinput">filename = <span class="string">'tb.csv'</span>
 M = csvread(filename);
 figure()
 plot3Dbody(<span class="string">'earthImage.Jpg'</span>,6371,0)
@@ -75,18 +75,18 @@ hold <span class="string">on</span>
 x=M(1,:);
 y=M(2,:);
 z=M(3,:);
-plot3(x(1:3:end), y(1:3:end), z(1:3:end))
+plot3(x(1:1:end), y(1:1:end), z(1:1:end))
 xlabel(<span class="string">'x [m]'</span>)
 ylabel(<span class="string">'y [m]'</span>)
 zlabel(<span class="string">'z [m]'</span>)
 </pre><pre class="codeoutput">
 filename =
 
-    'test.csv'
+    'tb.csv'
 
 </pre><img vspace="5" hspace="5" src="MAIN_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-filename = 'test.csv'
+filename = 'tb.csv'
 M = csvread(filename);
 figure()
 plot3Dbody('earthImage.Jpg',6371,0)
@@ -94,7 +94,7 @@ hold on
 x=M(1,:);
 y=M(2,:);
 z=M(3,:);
-plot3(x(1:3:end), y(1:3:end), z(1:3:end))
+plot3(x(1:1:end), y(1:1:end), z(1:1:end))
 xlabel('x [m]')
 ylabel('y [m]')
 zlabel('z [m]')
