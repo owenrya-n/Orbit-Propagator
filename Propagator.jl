@@ -12,8 +12,8 @@ using CSV, DataFrames
 #Format Date Times
 fmdate=DateTime(2022,12,05,3)
 epocht=datetime2julian(fmdate)
-gdate=DateTime(2022,12,25,4)
-e2date=datetime2julian(fmdate)
+gdate=DateTime(2023,01,25,4)
+e2date=datetime2julian(gdate)
 
 
 
@@ -25,8 +25,10 @@ i0=1.34#initial inclination
 ω0=0;#Argument of Perigree
 f0=0;#true anomaly
 
-ince=12;#increment
+ince=10;#increment
+a=epocht-e2date
 
+print(epocht-e2date)
 
 
 #Begin Orbit Propagation
@@ -35,7 +37,7 @@ ince=12;#increment
 #orbit = init_orbit_propagator(Val(:J2),0,7235000, 0, 1.34, 3.65, 0, 0.0, 0.0);
 orbit= init_orbit_propagator(Val(:J2), epocht, a0, e0, i0, Ω0, ω0, f0);
 
-r, v = propagate!(orbit, collect(1:ince:1000)*60*60);
+r, v = propagate!(orbit, collect(1:ince:a)*60*60);
 deltat=datetime2unix(gdate)-datetime2unix(fmdate);
 timeinsec=1:ince:deltat
 #r,v=propagate!(orbit,timeinsec)
@@ -46,7 +48,6 @@ for i in 1:9
     ptp[:,i]=r[i,1];
     i=i+1;
 end
-
 #write to csv
 CSV.write("test.csv", DataFrame(ptp, :auto),
                       header = false)   
