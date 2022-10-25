@@ -28,7 +28,7 @@
 
     #Begin Orbit Propagation
     eop_IAU2000A = get_iers_eop(Val(:IAU2000A)); 
-    orbit= init_orbit_propagator(Val(:J2), epocht, a0, e0, i0, Ω0, ω0, f0);
+    orbit= init_orbit_propagator(Val(:twobody), epocht, a0, e0, i0, Ω0, ω0, f0);
     deltat=datetime2unix(gdate)-datetime2unix(fmdate)
     timeinsec=1:ince:deltat
     r,v=propagate!(orbit,timeinsec)
