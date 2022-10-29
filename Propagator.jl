@@ -15,7 +15,7 @@ epocht=datetime2julian(fmdate)
 gdate=DateTime(2023,8,20,1)
 #gdate=DateTime(2023,1,19,5)
 e2date=datetime2julian(gdate)
-img = load("earth2Dmap.png");
+img = load("scs.jpg");
 
 
 #Establish Orbital Elements
